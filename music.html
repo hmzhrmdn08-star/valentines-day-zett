@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet">
+
+<title>Our Playlist</title>
+<link rel="stylesheet" href="css/music.css">
+</head>
+<body>
+
+<div class="music-page">
+
+  <div class="spotify-card">
+
+    <!-- HEADER -->
+    <div class="spotify-header">
+      <img src="images/spotify-logo.png" class="spotify-logo" alt="">
+      <span>Spotify</span>
+    </div>
+
+    <h2>Our Playlist 💚</h2>
+
+    <!-- PLAYER -->
+    <div class="player">
+      <img src="images/covers/pretty.jpeg" class="cover" id="coverImage" alt="cover">
+
+<div class="song-info">
+  <h3 id="songTitle">pretty</h3>
+  <p id="songArtist">JVKE</p>
+</div>
+
+<button id="playBtn" class="play"></button>
+    </div>
+<div class="song-list">
+<div class="song"
+  onclick="changeSong(
+    'audio/candyrella.mp3',
+    'CANDYRELLA',
+    'Paul Partohap',
+    'images/covers/candyrella.jpeg'
+  )">
+  <span>CANDYRELLA</span>
+  <small>Paul Partohap</small>
+</div>
+
+<div class="song"
+  onclick="changeSong(
+    'audio/gluesong.mp3',
+    'Glue Song',
+    'beabadoobee',
+    'images/covers/gluesong.jpg'
+  )">
+  <span>Glue Song</span>
+  <small>beabadoobee</small>
+</div>
+
+<div class="song"
+  onclick="changeSong(
+    'audio/seasons.mp3',
+    'Seasons',
+    'wave to earth',
+    'images/covers/seasons.jpg'
+  )">
+  <span>Seasons</span>
+  <small>wave to earth</small>
+</div>
+
+<div class="song"
+  onclick="changeSong(
+    'audio/pretty.mp3',
+    'pretty',
+    'JVKE',
+    'images/covers/pretty.jpeg'
+  )">
+  <span>pretty</span>
+  <small>JVKE</small>
+</div>
+
+<div class="song"
+  onclick="changeSong(
+    'audio/sparks.mp3',
+    'Sparks',
+    'Coldplay',
+    'images/covers/sparks.jpeg'
+  )">
+  <span>Sparks</span>
+  <small>Coldplay • Parachutes</small>
+</div>
+
+<div class="song"
+  onclick="changeSong(
+    'audio/aboutyou.mp3',
+    'About You',
+    'The 1975',
+    'images/covers/aboutyou.jpeg'
+  )">
+  <span>About You</span>
+  <small>The 1975</small>
+</div>
+
+<div class="song"
+  onclick="changeSong(
+    'audio/favorite.mp3',
+    'Favorite',
+    'Austin George',
+    'images/covers/favorite.jpeg'
+  )">
+  <span>Favorite</span>
+  <small>Austin George</small>
+</div>
+
+</div>
+
+  </div>
+
+</div>
+
+<audio id="audioPlayer" src="audio/pretty.mp3"></audio>
+
+<script src="js/music.js"></script>
+</body>
+</html>
