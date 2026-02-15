@@ -1,0 +1,158 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Segoe UI", sans-serif;
+  background: #f3f1ea;
+}
+
+/* ===== WRAPPER ===== */
+.page2 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* ===== LOVE TEXT (DEPAN) ===== */
+.love-text {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  font-size: 38px;
+  color: #b01030;
+  font-family: cursive;
+  z-index: 5;
+}
+
+/* ===== CUPID (DEPAN) ===== */
+.cupid {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  width: 120px;
+  z-index: 5;
+
+  animation: cupidFloat 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* ===== KERTAS ===== */
+.paper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: min(88vw, 420px);
+  height: 78vh;
+
+  background: #fff;
+  border-radius: 10px;
+
+  box-shadow:
+    inset 0 0 30px rgba(0,0,0,0.05),
+    0 8px 20px rgba(0,0,0,0.12);
+
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* ===== AREA TEXT (SCROLL DALAM KERTAS) ===== */
+.paper-content {
+  width: 100%;
+  height: 100%;
+  padding: 22px 18px;
+  overflow-y: auto;
+}
+
+/* SCROLLBAR */
+.paper-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.paper-content::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+/* JUDUL */
+.paper-content h2 {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  margin-bottom: 14px;
+  color: #b01030;
+}
+
+/* ISI SURAT */
+.paper-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* HEART BEAT (hanya simbol ♡) */
+.heart-beat {
+  display: inline-block;
+  animation: heartBeat 1.6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* AREA PENJAGA ATAS */.paper-top {
+  position: sticky;
+  top: 0;
+  height: 20px;
+  background: #fff;
+  z-index: 3;
+
+  box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+}
+
+/*ANIMASI HEARTBEAT*/
+@keyframes heartBeat {
+  0%   { transform: scale(1); }
+
+  /* jedag pertama */
+  15%  { transform: scale(1.22); }
+  28%  { transform: scale(1); }
+
+  /* jedag kedua (lebih kecil sedikit) */
+  40%  { transform: scale(1.15); }
+  55%  { transform: scale(1); }
+
+  /* jeda biar terasa natural */
+  100% { transform: scale(1); }
+}
+
+/*ANIMASI CUPID PICT*/
+@keyframes cupidFloat {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+
+  20% {
+    transform: translate(-3px, -3px) scale(1.08, 0.95) rotate(-3deg);
+  }
+
+  40% {
+    transform: translate(3px, -1px) scale(0.95, 1.08) rotate(2deg);
+  }
+
+  60% {
+    transform: translate(-2px, 2px) scale(1.04, 0.98) rotate(-2deg);
+  }
+
+  80% {
+    transform: translate(2px, 1px) scale(0.98, 1.04) rotate(2deg);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+}

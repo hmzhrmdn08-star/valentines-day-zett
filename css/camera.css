@@ -1,0 +1,143 @@
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+body{
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+
+  /* BACKGROUND FOTO */
+  background:url("../images/bg-gallery.jpeg") center/cover no-repeat;
+}
+
+/* PAGE */
+.camera-page{
+  width:100%;
+  height:100%;
+  position:relative;
+  overflow:hidden;
+}
+
+/* =========================
+   TITLE STRIP
+========================= */
+.gallery-title{
+  position:absolute;
+  top:18px;
+  left:0;
+
+  width:100%;
+  padding:12px 20px;
+
+  background:linear-gradient(
+    90deg,
+    rgba(255,255,255,0.92),
+    rgba(255,255,255,0.65)
+  );
+
+  font-family:"Poppins","Arial Black",sans-serif;
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:.3px;
+
+  color:#222;
+  text-align:center;
+
+  z-index:50;
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
+}
+
+/* WRAP ROTATE */
+.gallery-wrap{
+  position:absolute;
+  inset:0;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:space-evenly;
+
+  padding-top:90px;
+
+  transform:rotate(-10deg) scale(1.25);
+}
+
+/* ROW */
+.row{
+  width:100%;
+  overflow:hidden;
+}
+
+.track{
+  display:flex;
+  gap:8px;
+  width:max-content;
+}
+
+/* POLAROID */
+.polaroid{
+  width:135px;
+  flex-shrink:0;
+  background:white;
+  padding:8px 8px 18px;
+  box-shadow:0 4px 10px rgba(0,0,0,.18);
+}
+
+.polaroid img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  display:block;
+}
+
+/* =========================
+   LOOP ANIMATION (FIX SPEED)
+========================= */
+
+/* ROW 1 */
+.row:nth-child(1).left .track{
+  animation:moveLeft 16s linear infinite;
+}
+
+/* ROW 2 */
+.row:nth-child(2).right .track{
+  animation:moveRight 18s linear infinite;
+}
+
+/* ROW 3 */
+.row:nth-child(3).left .track{
+  animation:moveLeft 17s linear infinite;
+}
+
+/* ROW 4 — dibuat lebih cepat */
+.row:nth-child(4).right .track{
+  animation:moveRight 14s linear infinite;
+}
+
+/* fallback kalau class gak kebaca */
+.left .track{
+  animation:moveLeft 17s linear infinite;
+}
+
+.right .track{
+  animation:moveRight 17s linear infinite;
+}
+
+@keyframes moveLeft{
+  from { transform:translateX(0); }
+  to   { transform:translateX(-50%); }
+}
+
+@keyframes moveRight{
+  from { transform:translateX(-50%); }
+  to   { transform:translateX(0); }
+}

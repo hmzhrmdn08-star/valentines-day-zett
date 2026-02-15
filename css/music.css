@@ -1,0 +1,167 @@
+/* =========================
+   RESET
+========================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  width:100vw;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:"Montserrat",sans-serif;
+
+  background:linear-gradient(180deg,#1b1b1b,#000);
+}
+
+/* PAGE */
+.music-page{
+  width:100%;
+  max-width:420px;
+  height:90vh;
+  padding:20px;
+}
+
+/* CARD */
+.spotify-card{
+  background:#121212;
+  color:white;
+  border-radius:20px;
+  padding:18px;
+  box-shadow:0 12px 25px rgba(0,0,0,.45);
+}
+
+/* HEADER */
+.spotify-header{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:14px;
+  font-size:14px;
+  color:#b3b3b3;
+}
+
+.spotify-logo{
+  width:20px;
+  height:20px;
+}
+
+/* TITLE */
+.spotify-card h2{
+  font-size:24px;
+  margin-bottom:16px;
+  font-weight:800;
+}
+
+/* PLAYER */
+.player{
+  background:#1db954;
+  border-radius:14px;
+  padding:12px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.cover{
+  width:70px;
+  height:70px;
+  border-radius:8px;
+  object-fit:cover;
+}
+
+.song-info{
+  flex:1;
+}
+
+.song-info h3{
+  font-size:15px;
+  font-weight:700;
+}
+
+.song-info p{
+  font-size:12px;
+  opacity:.85;
+}
+/* =========================
+   PLAY / PAUSE BUTTON
+========================= */
+#playBtn{
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:50%;
+  background:white;
+  cursor:pointer;
+  position:relative;
+}
+
+/* ICON PLAY (SEGITIGA) */
+#playBtn.play::before{
+  content:"";
+  position:absolute;
+  left:17px;
+  top:12px;
+
+  width:0;
+  height:0;
+
+  border-top:10px solid transparent;
+  border-bottom:10px solid transparent;
+  border-left:14px solid #1db954;
+}
+
+/* ICON PAUSE (DUA GARIS) */
+#playBtn.pause::before,
+#playBtn.pause::after{
+  content:"";
+  position:absolute;
+  top:12px;
+  width:4px;
+  height:20px;
+  background:#1db954;
+  border-radius:2px;
+}
+
+#playBtn.pause::before{
+  left:14px;
+}
+
+#playBtn.pause::after{
+  right:14px;
+}
+
+
+/* SONG LIST */
+.song-list{
+  margin-top:18px;
+}
+
+.song{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:12px 4px;
+  border-bottom:1px solid #2a2a2a;
+  cursor:pointer;
+
+  transition:.2s;
+}
+
+.song:hover{
+  background:#1e1e1e;
+}
+
+.song span{
+  font-size:14px;
+}
+
+.song small{
+  font-size:12px;
+  color:#9a9a9a;
+}

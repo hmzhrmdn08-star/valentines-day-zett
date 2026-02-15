@@ -1,0 +1,298 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  width:100vw;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+
+  /* BACKGROUND GRADIENT BARU */
+  background: linear-gradient(
+    180deg,
+    #f5f5f7 0%,
+    #dfe3ea 40%,
+    #cfd6df 100%
+  );
+}
+
+/* =========================
+   IPHONE FRAME (SILVER EDGE ONLY)
+========================= */
+.iphone{
+  width:min(92vw,420px);
+  height:88vh;
+
+  position:relative;
+  overflow:hidden;
+  border-radius:35px;
+
+  /* WALLPAPER */
+  background:url("../images/wallpaper.png") center/cover no-repeat;
+
+  /* SILVER FRAME */
+  border:4px solid #cfcfcf;
+  
+  box-shadow:
+    inset 0 0 0 1.5px #f5f5f5,   /* highlight metal */
+    inset 0 0 0 3px #9f9f9f,     /* depth */
+    0 20px 35px rgba(0,0,0,0.35); /* shadow bawah */
+}
+
+/* DYNAMIC ISLAND */
+.dynamic-island{
+  position:absolute;
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  width:120px;
+  height:28px;
+  background:#000;
+  border-radius:20px;
+  z-index:50;
+}
+
+/* STATUS BAR */
+.status-bar{
+  position:absolute;
+  top:14px;
+  left:0;
+  width:100%;
+  padding:0 20px;
+  display:flex;
+  justify-content:space-between;
+  color:white;
+  z-index:40;
+  font-weight:600;
+}
+
+.status-icons{display:flex;align-items:center;}
+
+.signal{display:flex;gap:2px;align-items:flex-end;}
+.signal span{width:3px;background:#fff;border-radius:1px;}
+.signal span:nth-child(1){height:4px}
+.signal span:nth-child(2){height:6px}
+.signal span:nth-child(3){height:8px}
+.signal span:nth-child(4){height:10px}
+
+/* WIFI ICON FIX */
+.wifi {
+  position: relative;
+  width: 16px;
+  height: 12px;
+  margin-left: 8px;
+}
+
+.wifi::before,
+.wifi::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 2px solid white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 50%;
+}
+
+.wifi::before {
+  width: 14px;
+  height: 10px;
+  top: 0;
+}
+
+.wifi::after {
+  width: 8px;
+  height: 6px;
+  top: 4px;
+}
+
+.battery{
+  width:22px;height:11px;
+  border:2px solid #fff;
+  margin-left:8px;
+  position:relative;
+}
+.battery::after{
+  content:"";
+  position:absolute;
+  right:-4px;top:3px;
+  width:2px;height:4px;
+  background:#fff;
+}
+.battery-level{width:70%;height:100%;background:#fff;}
+
+/* LOCKSCREEN */
+.lockscreen{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.15);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  transition:transform .8s ease;
+  z-index:30;
+}
+
+.lockscreen.unlock{
+  transform:translateY(-100%);
+}
+
+.lock-time{
+  font-size:72px;
+  font-weight:300;
+}
+/* ================= HOMESCREEN ================= */
+.homescreen{
+  position:absolute;
+  inset:0;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+
+  padding:80px 16px 20px;
+}
+
+/* =========================
+   CLOCK WIDGET (FULL WIDTH)
+========================= */
+.clock-widget{
+  width: 100%;
+  padding: 0 6px;
+
+  color: white;
+
+  opacity: 0;
+  transform: translateY(20px) scale(.95);
+}
+
+/* JAM BESAR */
+.clock-time{
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+/* HARI (KIRI BAWAH) */
+.clock-day{
+  font-size: 14px;
+  opacity: .9;
+  margin-top: 4px;
+}
+
+/* MUNCUL SETELAH UNLOCK */
+.clock-widget.show{
+  animation: popup .6s cubic-bezier(.22,1.4,.3,1) forwards;
+}
+
+.clock-time{
+  text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+
+/* AREA TENGAH KOSONG */
+.home-space{
+  flex:1;
+}
+
+/* DOCK BAWAH (IPHONE STYLE) */
+.dock{
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+
+  background:rgba(255,255,255,.25);
+  backdrop-filter:blur(14px);
+
+  border-radius:24px;
+  padding:10px 12px;
+}
+
+/* APP */
+.app{
+  text-decoration:none;
+  color:white;
+  text-align:center;
+
+  opacity:0;
+  transform:translateY(25px) scale(.8);
+}
+
+.app img{
+  width:58px;
+  height:58px;
+  border-radius:14px;
+  display:block;
+  margin:auto;
+}
+
+.app span{
+  font-size:11px;
+  margin-top:5px;
+  display:block;
+}
+
+/* POPUP ANIMATION */
+.app.show{
+  animation:popup .6s cubic-bezier(.22,1.4,.3,1) forwards;
+}
+
+@keyframes popup{
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+
+/* APP GRID (RAPIH FIX) */
+.apps-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+/* APP */
+.app{
+  text-decoration:none;
+  color:white;
+  text-align:center;
+
+  opacity:0;
+  transform:translateY(20px) scale(.8);
+}
+
+.app img{
+  width:58px;
+  height:58px;
+  border-radius:14px;
+  display:block;
+  margin:auto;
+}
+
+.app span{
+  font-size:11px;
+  margin-top:5px;
+  display:block;
+}
+
+/* POPUP */
+.app.show{
+  animation:popup .6s cubic-bezier(.22,1.4,.3,1) forwards;
+}
+
+@keyframes popup{
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
